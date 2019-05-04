@@ -8,12 +8,24 @@ import { MainComponent } from './main/main.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import {ApiserviceService} from './apiservice.service';
+
+import { TempComponent } from './temp/temp.component';
+import { UserslistComponent } from './userslist/userslist.component';
+import { NewuserlistsComponent } from './newuserlists/newuserlists.component';
+import { HttpModule } from '@angular/http';
+
+
+
 
 
 
 const appRoutes:Routes=[
   {path:'',component:HomeComponent},
-  {path:'contact',component:ContactComponent}
+  {path:'contact',component:ContactComponent},
+
+  {path:'temp',component:TempComponent},
+  {path:'Users',component:NewuserlistsComponent}
 
 ]
 
@@ -24,14 +36,18 @@ const appRoutes:Routes=[
     MainComponent,
     NavbarComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    TempComponent,
+    NewuserlistsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpModule
+    
   ],
-  providers: [],
+  providers: [ApiserviceService],
   bootstrap: [NavbarComponent,MainComponent]
 })
 export class AppModule { }
